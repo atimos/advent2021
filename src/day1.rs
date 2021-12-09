@@ -8,8 +8,8 @@ pub mod task1 {
             .map(usize::from_str)
             .map(Result::unwrap)
             .tuple_windows()
-            .map(|(prev, next)| (next > prev) as usize)
-            .sum();
+            .filter(|(prev, next)| next > prev)
+            .count();
         dbg!(result);
     }
 }
@@ -26,8 +26,8 @@ pub mod task2 {
             .tuple_windows()
             .map(|(first, second, third)| first + second + third)
             .tuple_windows()
-            .map(|(prev, next)| (next > prev) as usize)
-            .sum();
+            .filter(|(prev, next)| next > prev)
+            .count();
         dbg!(result);
     }
 }
